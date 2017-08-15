@@ -1,5 +1,6 @@
 # serverless-nodejs-auth
 
+[![Build Status](https://travis-ci.org/ceccode/serverless-nodejs-auth.svg?branch=master)](https://travis-ci.org/ceccode/serverless-nodejs-auth)
 [![https://david-dm.org/ceccode/serverless-nodejs-auth.svg](https://david-dm.org/ceccode/serverless-nodejs-auth.svg)](https://david-dm.org/ceccode/serverless-nodejs-auth.svg)
 
 Nodejs AWS custom authorizer and auth service: user authentication using JWT.

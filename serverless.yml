@@ -1,0 +1,62 @@
+service: serverless-nodejs-auth
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  webpackIncludeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: eu-west-1
+  stage: dev
+  profile: ypur-aws-profile
+  memorySize: 512
+  timeout: 60
+  environment: ${file(env-${self:custom.stage}.yml):environment}
+
+
+package:
+  include:
+    - src/**
+  exclude:
+    - tmp/**
+    - .git/*
+    - node_modules/**
+    - .coverage/**
+    - tests/**
+    - .jsconfig
+    - .travis.yml
+
+functions:
+  login:
+    handler: src/auth/login.handler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+
+  publicEndpoint:
+    handler: src/auth/endpoint.publicEndpoint
+    events:
+      - http:
+          path: publicEndpoint
+          method: get
+          cors: true
+
+  privateEndpoint:
+    handler: src/auth/endpoint.privateEndpoint
+    events:
+      - http:
+          path: privateEndpoint
+          method: get
+          cors: true
+          authorizer: authorizer          
+
+  authorizer:
+    handler: src/auth/authorizer.handler
+
+plugins:
+  - serverless-mocha-plugin
+  - serverless-webpack
+  - serverless-offline

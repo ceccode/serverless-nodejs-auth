@@ -1,0 +1,19 @@
+.DS_Store
+.idea
+.vscode
+
+# package directories
+node_modules
+jspm_packages
+npm-debug.log*
+.npm
+.nyc_output
+.webpack
+
+# Serverless Framework directories
+.serverless
+env-prod.yml
+
+# Coverage directory
+coverage
+

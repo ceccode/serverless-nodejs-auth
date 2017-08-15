@@ -1,0 +1,4 @@
+  environment:
+    APP_NAME: serverless-nodejs-auth
+    TOKEN_SECRET: D5\x12\x03\xaa\xe6\x97\xe6\x1b\x9cjT~\x0c\x1f\xffg\xe1O\xef\xbeL\xc6\n
+    CRYPTO_BYTE_SIZE: 512
